@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreWsl_infoRequest;
+use App\Http\Requests\UpdateWsl_infoRequest;
 use App\Models\wsl_info;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,9 @@ class WslInfoController extends Controller
      */
     public function index()
     {
-        //
+        $wsl_infos = wsl_info::all();
+
+        return view('wsl-info.index', compact('wsl_infos'));
     }
 
     /**
@@ -24,7 +28,7 @@ class WslInfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('wsl-info.create');
     }
 
     /**
@@ -33,9 +37,11 @@ class WslInfoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreWsl_infoRequest $request)
     {
-        //
+        wsl_info::create($request->validated());
+
+        return redirect()->route('wsl-infos.index');
     }
 
     /**
@@ -46,7 +52,7 @@ class WslInfoController extends Controller
      */
     public function show(wsl_info $wsl_info)
     {
-        //
+        return view('wsl-info.show', compact('wsl_info'));
     }
 
     /**
@@ -57,7 +63,7 @@ class WslInfoController extends Controller
      */
     public function edit(wsl_info $wsl_info)
     {
-        //
+        return view('wsl-info.edit', compact('wsl_info'));
     }
 
     /**
@@ -67,9 +73,12 @@ class WslInfoController extends Controller
      * @param  \App\Models\wsl_info  $wsl_info
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, wsl_info $wsl_info)
+    public function update(UpdateWsl_infoRequest $request, wsl_info $wsl_info)
     {
-        //
+
+        $wsl_info->update($request->validated());
+
+        return redirect()->route('wsl-infos.index');
     }
 
     /**
@@ -80,6 +89,8 @@ class WslInfoController extends Controller
      */
     public function destroy(wsl_info $wsl_info)
     {
-        //
+        $wsl_info->delete();
+
+        return redirect()->route('wsl-infos.index');
     }
 }

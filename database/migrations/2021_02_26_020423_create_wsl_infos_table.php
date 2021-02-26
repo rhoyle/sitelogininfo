@@ -15,21 +15,23 @@ class CreateWslInfosTable extends Migration
     {
         Schema::create('wsl_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('site_name');
+            $table->string('url');
+            $table->string('site_name')->nullable();
             $table->string('user_name');
             $table->string('users_email');
-            $table->string('url');
             $table->string('password');
-            $table->string('contact_person');
-            $table->string('account_number');
-            $table->string('site_pin');
-            $table->string('security_question_1');
-            $table->string('security_answer_1');
-            $table->string('security_question_2');
-            $table->string('security_answer_2');
-            $table->string('security_question_3');
-            $table->string('security_answer_3');
+            $table->string('contact_person')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('miscellaneous')->nullable();
+            $table->string('site_pin')->nullable();
+            $table->string('security_question_1')->nullable();
+            $table->string('security_answer_1')->nullable();
+            $table->string('security_question_2')->nullable();
+            $table->string('security_answer_2')->nullable();
+            $table->string('security_question_3')->nullable();
+            $table->string('security_answer_3')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

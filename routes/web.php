@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('wsl-infos', 'WslInfoController');
+
 Route::get('/about', 'FrontPageController@about')->name('front.about-us');
 Route::get('/blog', 'FrontPageController@blog')->name('front.blog');
 Route::get('/contact', 'FrontPageController@contact')->name('front.contact-us');
@@ -28,6 +30,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => 'auth', 'verified'], function (){
 
     Route::resource('users', 'UsersController');
+
+
+
+
 
 });
 

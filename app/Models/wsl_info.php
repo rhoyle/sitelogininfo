@@ -17,6 +17,7 @@ class wsl_info extends Model
         'password',
         'contact_person',
         'account_number',
+        'miscellaneous',
         'site_pin',
         'security_question_1',
         'security_answer_1',
