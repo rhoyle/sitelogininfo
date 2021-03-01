@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWsl_infoRequest extends FormRequest
+class StoreClientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,52 +24,41 @@ class UpdateWsl_infoRequest extends FormRequest
     public function rules()
     {
         return [
-            'site_name'     => [
+            'name'     => [
                 'string',
                 'required',
             ],
-            'user_name'     => [
+            'contact_number'    => [
                 'string',
                 'required',
             ],
-            'users_email'    => [
+            'cell_phone' => [
                 'string',
                 'required',
             ],
-            'url'     => [
+            'text_message'    => [
                 'string',
                 'required',
             ],
-
-            'contact_person'     => [
+            'street_address' => [
                 'string',
+                'required',
             ],
-            'account_number'     => [
+            'street_address_line_2'    => [
                 'string',
+                'required',
             ],
-            'miscellaneous'     => [
+            'city' => [
                 'string',
+                'required',
             ],
-            'site_pin'     => [
+            'state'    => [
                 'string',
+                'required',
             ],
-            'security_question_1'     => [
+            'zip_code' => [
                 'string',
-            ],
-            'security_answer_1'     => [
-                'string',
-            ],
-            'security_question_2'     => [
-                'string',
-            ],
-            'security_answer_2'     => [
-                'string',
-            ],
-            'security_question_3'     => [
-                'string',
-            ],
-            'security_answer_3'     => [
-                'string',
+                'required',
             ],
         ];
     }

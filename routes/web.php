@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::resource('wsl-infos', 'WslInfoController');
 
+Route::resource('clients', 'ClientController');
+
+
 Route::get('/about', 'FrontPageController@about')->name('front.about-us');
 Route::get('/blog', 'FrontPageController@blog')->name('front.blog');
 Route::get('/contact', 'FrontPageController@contact')->name('front.contact-us');

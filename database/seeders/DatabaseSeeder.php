@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             WslInfoSeeder::class,
+            ClientSeeder::class,
         ]);
     }
 }

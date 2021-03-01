@@ -26,6 +26,12 @@
                 @endcan
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('clients.index') }}" :active="request()->routeIs('clients.index')">
+                        {{ __('Clients List') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('wsl-infos.index') }}" :active="request()->routeIs('wsl-infos.index')">
                         {{ __('Web Site Login Info') }}
                     </x-jet-nav-link>
